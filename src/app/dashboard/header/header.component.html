@@ -1,0 +1,70 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="end">
+    <ul style="list-style-type: none;">
+      <li style="display: inline;margin-right: 20px" *ngIf="loggedIn">
+        <a style="cursor: pointer;" (click)="login()">
+        login
+      	</a>
+
+      </li>
+
+      <li>
+      <div class="dropdown">
+        <button class="dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+
+          <img src="assets/avatar.jpg"
+               class="rounded-circle"
+               style="width: 35px; height: 35px;" alt="Avatar" />
+
+        </button>
+
+
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item" href="#">
+              <div class="d-flex">
+                <div class="flex-shrink-0 me-3">
+                  <div class="avatar avatar-online">
+                    <img src="assets/avatar.jpg" alt style="width:50px;height: 50px" class="rounded-circle" />
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <span class="fw-semibold d-block">{{firstName}} {{lastName}}</span>
+                  <small class="text-muted">{{username}}</small>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <div class="dropdown-divider"></div>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              <i class="pi pi-user me-3"></i>
+              <span class="align-middle">My Profile</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">
+              <i class="pi pi-wrench me-3"></i>
+              <span class="align-middle">Settings</span>
+            </a>
+          </li>
+          <li>
+            <div class="dropdown-divider"></div>
+          </li>
+          <li>
+            <a class="dropdown-item logout" routerLink="" (click)="logout()">
+              <i class="pi pi-sign-out me-3"></i>
+              <span class="align-middle">Log Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    	</li>
+    </ul>
+  </ng-template>
+</p-menubar>

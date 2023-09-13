@@ -1,0 +1,86 @@
+
+<p-toast></p-toast>
+<div class="login-bg">
+<div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+
+<form [formGroup]="loginForm">
+  <h3 style="text-align: center"></h3>
+  <div class="flex align-items-center justify-content-center">
+    <div class="surface-card p-4 shadow-2 border-round w-30rem ">
+      <div>
+        <div class="mb-4">
+          <img  src="assets/logo.png"
+                width="100" class="center-image mb-3"
+                [ngClass]="{'':!isWrong,'animate__animated animate__shakeX animate__repeat-1':isWrong}">
+          <h5 style="text-align: center"  class="mb-2">Log in to EM System</h5>
+          <div class="text-center mb-5">
+            <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+            <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer" >Create today!</a>
+          </div>
+          <label for="username" class="block text-900 font-medium mb-2">Username</label>
+          <input pInputTextarea formControlName="username" id="username" class="w-full " placeholder="username *"/>
+          <div *ngIf="username?.invalid && (username?.dirty || username?.touched)"
+               class="p-error">
+            <div *ngIf="username?.errors?.['required']">
+              Please enter your username
+            </div>
+          </div>
+        </div>
+        <div>
+          <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+          <input pInputTextarea formControlName="password" id="password1" type="password" class="w-full" placeholder="password *"/>
+          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+               class="p-error">
+            <div *ngIf="password?.errors?.['required']">
+              Please enter your username
+            </div>
+          </div>
+        </div>
+        <div class="flex align-items-center justify-content-between mt-3">
+          <div class="flex align-items-center">
+            <input class="form-check-input mr-2"
+                   type="checkbox"
+                   id="rememberMe"
+                   name="rememberMe"
+                   value="something" (change)="toggleRememberMe()" [checked]="rememberMe">
+            <label for="rememberMe" class="text-900">Remember me</label>
+          </div>
+          <a (click)="showBasicDialog()" class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">
+            Forgot password?
+          </a>
+        </div>
+        <div style="display: flex; justify-content: center">
+          <button pButton pRipple
+                  type="submit" label="Log in"
+                  icon="pi pi-user"
+                  class="p-button-rounded p-button-plain p-button-sm  mt-4 w-10rem"
+                  (click)="login()" [disabled]="loginForm.invalid">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+
+<form [formGroup]="forgetPasswordForm">
+  <p-dialog header="Enter valid email to restore password" [(visible)]="displayBasic" [style]="{width: '50vw'}">
+
+  <span class="p-float-label">
+    <input pInputText formControlName="email1" id="float-input" type="text" class="w-25rem">
+    <label for="float-input">email</label>
+	</span>
+
+    <ng-template pTemplate="footer">
+
+      <button pButton type="button"
+              icon="pi pi-check"
+              label="Send"
+              class="p-button-warning p-button-sm"
+              (click)="forgetPassword()">
+      </button>
+
+    </ng-template>
+  </p-dialog>
+</form>

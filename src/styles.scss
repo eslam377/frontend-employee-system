@@ -1,0 +1,57 @@
+body{
+  background-color: #eee !important;
+}
+.p-menubar {
+  background: #ffffff !important;
+  padding: 10px !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.p-dialog-draggable .p-dialog-header {
+  cursor: move;
+  background-color: #02149b !important;
+  height: 55px;
+  padding-bottom : 15px !important;
+}
+.p-float-label {
+  display: block;
+  position: relative;
+  margin-top: 25px;
+}
+
+.p-dialog .p-dialog-content {
+  padding: 0 1.5rem .5rem 1.5rem !important;
+}
+.p-dialog-header{
+  padding: 15px !important;
+  color: #fff !important;
+  background-color: #ffffff !important;
+}
+.p-button.p-button-warning, .p-buttonset.p-button-warning > .p-button, .p-splitbutton.p-button-warning > .p-button {
+  color: #ffffff;
+  background: #02149b !important;
+  border: 1px solid #02149b !important;
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon {
+  color: #000000 !important;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-icon {
+  color: #000000 !important;
+}
+
+.p-menubar .p-menuitem-link:not(.p-disabled):hover {
+  background: #a9a9a9 !important;
+}
+.p-menubar .p-menuitem-link:not(.p-disabled):focus {
+  background: #a9a9a9 !important;
+}
+
