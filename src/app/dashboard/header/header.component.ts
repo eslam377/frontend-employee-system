@@ -13,8 +13,10 @@ export class HeaderComponent implements OnInit {
    username: any;
    firstName: any;
    lastName: any;
+   user: any;
+   userRoles:String[] = [];
 
-  constructor(private _auth : AuthService,private _router: Router) {
+  constructor(private _auth : AuthService,private _router: Router,) {
   }
 
   items: MenuItem[] =[];
@@ -22,33 +24,33 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
 
-    const token:any = localStorage.getItem('token');
-    const decodedToken:any = jwt_decode(token);
+    const token: any = localStorage.getItem('token');
+    const decodedToken: any = jwt_decode(token);
     const username = decodedToken.sub;
 
-		this.getUserByUserName(username);
+    this.getUserByUserName(username);
 
     this.items = [
+
       {
         label: 'Home',
         icon: 'pi pi-home',
-        routerLink:'home'
+        routerLink: 'home'
       },
       {
         label: 'Employees',
         icon: 'pi pi-users',
-        routerLink:'employees'
+        routerLink: 'employees',
       },
       {
         label: 'Departments',
         icon: 'pi pi-align-left',
-        routerLink:'departments'
+        routerLink: 'departments',
       },
       {
-        label: 'test',
-        routerLink:'test'
-      },
-
+        label: 'Test',
+        routerLink: 'test',
+      }
     ];
   }
 
@@ -65,9 +67,14 @@ export class HeaderComponent implements OnInit {
 
   getUserByUserName(data:any) {
     this._auth.getUserByUsername(data).subscribe((res)=>{
+      this.user = res;
       this.username = res.username ;
       this.firstName = res.firstName;
       this.lastName = res.lastName;
+      res.roles.forEach((role: { name: String; }) => {this.userRoles.push(role.name);
+      });
+      console.log(this.userRoles)
+      console.log(this.userRoles.includes('ROLE_SUPER_ADMIN'));
     })
   }
 

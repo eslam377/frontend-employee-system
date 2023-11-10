@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getHello()
     this.createLoginForm();
     this.createForgetPasswordForm();
 
@@ -119,22 +118,5 @@ export class LoginComponent implements OnInit {
   toggleRememberMe() {
     this.rememberMe = !this.rememberMe;
   }
-
-
-  getHello(){
-    this._authService.getHello().subscribe((res)=>{
-      this.result = res ;
-      console.log(this.result)
-    });
-  }
-
-
-
-
-
-
-
-
-
 
 }
